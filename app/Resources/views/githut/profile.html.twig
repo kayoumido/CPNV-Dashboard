@@ -1,0 +1,26 @@
+
+<img src="{{ avatar_url }}" alt="avatar url" class="img-thumbnail img-fluid">
+
+<h1>{{ name }}</h1>
+<h2>{{ login }}</h2>
+
+<hr>
+
+<ul class="list-unstyled">
+    {% for detail in details %}
+        <li>{{ detail }}</li>
+    {% endfor %}
+    <li><a href="{{ blog }}"> {{ blog }} </a></li>
+</ul>
+
+<hr>
+
+<ul class="list-inline">
+    {% for key, data in social_data %}
+        <li class="list-inline-item">
+            <span class="social-metric-count">{{ data }}</span>
+            <br>
+            <span class="small muted">{{ key }}</span>
+        </li>
+    {% endfor %}
+</ul>
