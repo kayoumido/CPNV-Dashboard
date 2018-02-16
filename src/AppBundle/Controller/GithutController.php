@@ -6,37 +6,56 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+use AppBundle\Service\GithubApi;
+
 /**
  * @Route("/githut")
  */
 class GithutController extends Controller {
 
     /**
-     * @Route("/", name="githut")
+     * @Route("/{username}", name="githut", defaults={ "username": "kayoumido" })
      */
-    public function githutAction(Request $request) {
+    public function githutAction(Request $request, String $username) {
+
+
+
         return $this->render("githut/index.html.twig", [
-            "avatar_url" => "https://avatars1.githubusercontent.com/u/10879378?v=4",
-            "login"      => "kayoumido",
-            "name"       => "Doran Kayoumi",
-            "details"    => [
-                "company"   => "Evil corp",
-                "location"  => "Lausanne, Switzerland",
-                "joined_on" => "Joined on 6th Feb 2015"
+            "username" => $username,
+            "repo_count" => 100,
+            "most_stars" => 67,
+            "repos" => [
+                [
+                    "name" => "Some dope repo",
+                    "url" => "https://coderreviewvideos.com",
+                    "stargazers_count" => 46,
+                    "description" => "learn symfony 3!"
+                ],
+                [
+                    "name" => "BBC",
+                    "url" => "https://bbc.co.uk",
+                    "stargazers_count" => 22,
+                    "description" => "the bbc!"
+                ],
+                [
+                    "name" => "google is swagg",
+                    "url" => "https://google.com",
+                    "stargazers_count" => 11,
+                    "description" => "the web is deep"
+                ],
             ],
-            "blog"        => "https://doran.kayoumi.io/",
-            "social_data" => [
-                "Public repos" => 13,
-                "Followers"    => 1,
-                "Following"    => 7,
-            ]
         ]);
     }
 
     /**
-     * @Route("/profile", name="profile")
+     * @Route("/profile/{username}", name="profile")
      */
-    public function profilAction(Request $request) {
-        return $this->render("githut/profile.html.twig");
+    public function profileAction(Request $request, String $username) { 
+
+        $githubapi = $this->get(GithubApi::class);
+
+        $profile = $githubapi->fetchProfile($username);
+
+        return $this->render("githut/profile.html.twig", $profile);
     }
 }
