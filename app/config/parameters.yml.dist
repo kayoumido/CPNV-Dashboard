@@ -21,6 +21,11 @@ parameters:
     # config for the different apis
     api:
         facebook:
-            app_id: "app_id"
-            app_secret: "app_secret"
-            access_token: "access_token"
+            app_id: AppId
+            app_secret: AppSecret
+            access_token: AccessToken
+        twitter:
+            app_id: ClientID
+            app_secret: ClientSecret
+            access_token: AccessToken
+            access_token_secret: AccessTokenSecret
