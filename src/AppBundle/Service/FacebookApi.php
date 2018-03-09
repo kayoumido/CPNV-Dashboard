@@ -4,6 +4,7 @@ namespace AppBundle\Service;
 class FacebookApi {
     
     private $fb;
+    private $account = "cpnv.ch";
     private $config;
     
     public function __construct(array $facebookConfig) {
@@ -19,7 +20,7 @@ class FacebookApi {
     public function getLikes() {
         try {
             // Returns a `Facebook\FacebookResponse` object
-            $response = $this->fb->get('/cpnv.ch?fields=fan_count', $$this->configthis->config["access_token"]);
+            $response = $this->fb->get("/${$this->account}?fields=fan_count", $$this->configthis->config["access_token"]);
 
         } catch(Facebook\Exceptions\FacebookResponseException $e) {
             echo 'Graph returned an error: ' . $e->getMessage();
@@ -35,7 +36,7 @@ class FacebookApi {
     public function getPosts(int $nbPosts) {
         try {
             // Returns a `Facebook\FacebookResponse` object
-            $response = $this->fb->get('/cpnv.ch/feed', $this->config["access_token"]);
+            $response = $this->fb->get("/${$this->account}/feed", $this->config["access_token"]);
 
         } catch(Facebook\Exceptions\FacebookResponseException $e) {
             echo 'Graph returned an error: ' . $e->getMessage();
