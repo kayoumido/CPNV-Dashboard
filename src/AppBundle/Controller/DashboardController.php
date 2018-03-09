@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace AppBundle\Controller;
 
@@ -6,8 +6,16 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class DashboardController extends Controller
+use AppBundle\Service\FacebookApi;
+
+final class DashboardController extends Controller
 {
+    private $apiconfig;
+    
+    function __construct(array $apiconfig) {
+        $this->apiconfig = $apiconfig;
+    }
+
     /**
      * @Route("/", name="homepage")
      */
