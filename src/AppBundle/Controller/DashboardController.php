@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace AppBundle\Controller;
 
@@ -7,9 +7,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 use AppBundle\Service\FacebookApi;
+use AppBundle\Service\TwitterApi;
 
-final class DashboardController extends Controller
-{
+final class DashboardController extends Controller {
     private $apiconfig;
     
     function __construct(array $apiconfig) {
@@ -19,8 +19,7 @@ final class DashboardController extends Controller
     /**
      * @Route("/", name="homepage")
      */
-    public function indexAction(Request $request)
-    {
+    public function indexAction(Request $request) {
         // replace this example code with whatever you need
         return $this->render('dashboard/index.html.twig');
     }
