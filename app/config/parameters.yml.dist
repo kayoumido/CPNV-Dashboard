@@ -17,3 +17,10 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret: ThisTokenIsNotSoSecretChangeIt
+
+    # config for the different apis
+    api:
+        facebook:
+            app_id: "app_id"
+            app_secret: "app_secret"
+            access_token: "access_token"
