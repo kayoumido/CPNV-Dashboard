@@ -33,4 +33,8 @@ class TwitterApi {
 
         return array_splice($posts, 0, $nbPosts);
     }
+
+    public function getAccountName() {
+        return $this->account;
+    }
 }

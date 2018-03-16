@@ -25,4 +25,8 @@ class InstagramApi {
         $posts = $this->ig->user->edge_owner_to_timeline_media->edges;
         return array_splice($posts, 0, $nbPosts);
     }
+
+    public function getAccountName() {
+        return $this->account;
+    }
 }
