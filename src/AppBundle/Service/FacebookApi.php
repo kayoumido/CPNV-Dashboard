@@ -20,7 +20,7 @@ class FacebookApi {
     public function getLikes() {
         try {
             // Returns a `Facebook\FacebookResponse` object
-            $response = $this->fb->get("/${$this->account}?fields=fan_count", $$this->configthis->config["access_token"]);
+            $response = $this->fb->get("/{$this->account}?fields=fan_count", $this->config["access_token"]);
 
         } catch(Facebook\Exceptions\FacebookResponseException $e) {
             echo 'Graph returned an error: ' . $e->getMessage();
