@@ -25,9 +25,12 @@ class TwitterApi {
         ])->followers_count;
     }
 
-    public function getTweets() {
-        return $this->tw->get("statuses/user_timeline", [
+    public function getTweets(int $nbPosts) {
+
+        $posts = $this->tw->get("statuses/user_timeline", [
             "screen_name" => $this->account
         ]);
+
+        return array_splice($posts, 0, $nbPosts);
     }
 }
