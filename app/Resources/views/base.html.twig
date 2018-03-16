@@ -1,13 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('assets/styles/main.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/styles/materialize.min.css') }}">
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+        
+        {% block styles %}{% endblock %}
+        <title>CPNV Dashboard</title>
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <nav class="header">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo header__logo"><img src="{{ asset('assets/img/logo-cpnv-dashboard.png') }}" alt=""></a>
+            </div>
+        </nav>
+        <div class="container">
+            {% block body %}{% endblock %}
+        </div>
         {% block javascripts %}{% endblock %}
+        <script src="{{ asset('assets/javascript/materialize.min.js') }}"></script>
     </body>
 </html>
