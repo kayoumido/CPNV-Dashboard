@@ -54,7 +54,10 @@ class FacebookApi {
     }
 
     public function getName() {
-        return $this->fb->get("/cpnv.ch", $this->config["access_token"])->getGraphNode()['name'];
+        return $this->fb->get("/{$this->account}", $this->config["access_token"])->getGraphNode()['name'];
     }
 
+    public function getProfilPicture() {
+        return $this->fb->get("/{$this->account}/picture", $this->config["access_token"])->getHeaders()['Location'];
+    }
 }
