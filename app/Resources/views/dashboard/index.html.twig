@@ -5,7 +5,7 @@
         <div class="platforms__choice">
             <div class="row">
                 <div class="col l4">
-                    <div class="card-panel platform platform--facebook">
+                    <div data-platform="facebook" class="card-panel platform platform--facebook">
                         <div class="platform__icon col l2">
                             <svg class="icon icon--facebook">
                                 <use xlink:href="{{ asset('assets/img/social-media-icons.svg#facebook') }}"></use>
@@ -19,7 +19,7 @@
                 </div>
                 
                 <div class="col l4">
-                    <div class="card-panel platform platform--twitter">
+                    <div data-platform="twitter" class="card-panel platform platform--twitter">
                         <div class="platform__icon col l2">
                             <svg class="icon icon--twitter">
                                 <use xlink:href="{{ asset('assets/img/social-media-icons.svg#twitter') }}"></use>
@@ -33,7 +33,7 @@
                 </div>
                 
                 <div class="col l4">
-                    <div class="card-panel platform platform--instagram">
+                    <div data-platform="instagram" class="card-panel platform platform--instagram">
                         <div class="platform__icon col l2">
                             <svg class="icon icon--instagram">
                                 <use xlink:href="{{ asset('assets/img/social-media-icons.svg#instagram') }}"></use>
@@ -49,7 +49,7 @@
         </div>
         
         <div class="platforms__data">
-            <div class="platform-data platform-data--hidden platform-data--facebook">
+            <div class="platform-data platform-data--facebook">
                 <div class="row">
                     <div class="platform-data__followers col l4 card-panel">
                         <span class="platform-data__followers__count">{{ facebook.getLikes() }}</span>
@@ -109,7 +109,7 @@
                 </div>
             </div>
 
-            <div class="platform-data platform-data--instagram">
+            <div class="platform-data platform-data--hidden platform-data--instagram">
                 <div class="row">
                     <div class="platform-data__followers col l4 card-panel">
                         <span class="platform-data__followers__count">{{ instagram.getFollowerCount() }}</span>
