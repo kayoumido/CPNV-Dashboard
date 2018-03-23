@@ -29,4 +29,12 @@ class InstagramApi {
     public function getAccountName() {
         return $this->account;
     }
+
+    public function getName() {
+        return $this->ig->user->full_name;
+    }
+
+    public function getProfilPicture() {
+        return $this->ig->user->profile_pic_url_hd;
+    }
 }
