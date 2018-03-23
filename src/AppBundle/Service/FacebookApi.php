@@ -36,7 +36,7 @@ class FacebookApi {
     public function getPosts(int $nbPosts) {
         try {
             // Returns a `Facebook\FacebookResponse` object
-            $response = $this->fb->get("/${$this->account}/feed", $this->config["access_token"]);
+            $response = $this->fb->get("/{$this->account}/posts", $this->config["access_token"]);
 
         } catch(Facebook\Exceptions\FacebookResponseException $e) {
             echo 'Graph returned an error: ' . $e->getMessage();
@@ -51,6 +51,10 @@ class FacebookApi {
 
     public function getAccountName() {
         return $this->account;
+    }
+
+    public function getName() {
+        return $this->fb->get("/cpnv.ch", $this->config["access_token"])->getGraphNode()['name'];
     }
 
 }
