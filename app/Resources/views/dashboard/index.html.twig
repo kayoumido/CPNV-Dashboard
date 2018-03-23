@@ -1,19 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('assets/styles/main.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/styles/materialize.min.css') }}">
-    <title>CPNV Dashboard</title>
-</head>
-<body>
-    <nav>
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Logo</a>
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="platforms">
+        <div class="platforms__choice">
+            <div class="row">
+                <div class="col l4">
+                    <div class="card-panel platform platform--facebook">
+                        <div class="platform__icon col l2">
+                            <svg class="icon icon--facebook">
+                                <use xlink:href="{{ asset('assets/img/social-media-icons.svg#facebook') }}"></use>
+                            </svg>
+                        </div>
+                        <div class="platform__content col l10">
+                            <span class="platform__accountname">{{ facebook.getAccountName() }}</span>
+                            <span class="platform__title">facebook</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col l4">
+                    <div class="card-panel platform platform--twitter">
+                        <div class="platform__icon col l2">
+                            <svg class="icon icon--twitter">
+                                <use xlink:href="{{ asset('assets/img/social-media-icons.svg#twitter') }}"></use>
+                            </svg>
+                        </div>
+                        <div class="platform__content col l10">
+                            <span class="platform__accountname">@{{ twitter.getAccountName() }}</span>
+                            <span class="platform__title">twitter</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col l4">
+                    <div class="card-panel platform platform--instagram">
+                        <div class="platform__icon col l2">
+                            <svg class="icon icon--instagram">
+                                <use xlink:href="{{ asset('assets/img/social-media-icons.svg#instagram') }}"></use>
+                            </svg>
+                        </div>
+                        <div class="platform__content col l10">
+                            <span class="platform__accountname">{{ instagram.getAccountName() }}</span>
+                            <span class="platform__title">instagram</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </nav>
-    <script src="{{ asset('assets/javascript/materialize.min.js') }}"></script>
-</body>
-</html>
+        
+        <div class="platforms__data">
+            <div class="platform-data platform-data--hidden platform-data--facebook">
+                <div class="row">
+                    <div class="platform-data__followers col l4 card-panel">
+                        <span class="platform-data__followers__count">{{ facebook.getLikes() }}</span>
+                        <span class="platform-data__followers__text">likes</span>
+                    </div>
+                    <div class="platform-data__posts col l8">
+                        {% for post in facebook.getPosts(5) %}
+                            {% if post.message is defined %}
+                                <div class="post card-panel">
+                                    <div class="row">
+                                        <div class="post__header">
+                                            <div class="col l1 post__author__profilpicture"><img src="{{ facebook.getProfilPicture }}" alt="User profil picture"></div>
+                                            <div class="col l11 post__header__text">
+                                                <div class="post__author__name">{{ facebook.getName() }}</div>
+                                                <div class="post__publishdate">{{ post.created_time.date|date("d M Y") }}</div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="col l12 post__message">{{ post.message }}</div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="platform-data platform-data--hidden platform-data--twitter">
+                <div class="row">
+                    <div class="platform-data__followers col l4 card-panel">
+                        <span class="platform-data__followers__count">{{ twitter.getFollowerCount() }}</span>
+                        <span class="platform-data__followers__text">followers</span>
+                    </div>
+                    <div class="platform-data__posts col l8">
+                        {% if twitter.getTweets(1) is empty %}
+                            No posts
+                        {% endif %}
+                        
+                        {% for post in twitter.getTweets(5) %}
+                            {% if post.text is defined %}
+                                <div class="post card-panel">
+                                    <div class="row">
+                                        <div class="post__header">
+                                            <div class="col l1 post__author__profilpicture"><img src="{{ post.user.profile_image_url_https }}" alt="User profil picture"></div>
+                                            <div class="col l11 post__header__text">
+                                                <div class="post__author__name">{{ post.user.screen_name }}</div>
+                                                <div class="post__publishdate">{{ post.created_at|date("d M Y") }}</div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col l12 post__message">{{ post.text }}</div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="platform-data platform-data--instagram">
+                <div class="row">
+                    <div class="platform-data__followers col l4 card-panel">
+                        <span class="platform-data__followers__count">{{ instagram.getFollowerCount() }}</span>
+                        <span class="platform-data__followers__text">followers</span>
+                    </div>
+                    <div class="platform-data__posts col l8">
+
+                        {% for post in instagram.getPosts(5) %}
+                            <div class="post card-panel">
+                                <div class="row">
+                                    <div class="post__header">
+                                        <div class="col l1 post__author__profilpicture"><img src="{{ instagram.getProfilPicture() }}" alt="User profil picture"></div>
+                                        <div class="col l11 post__header__text">
+                                            <div class="post__author__name">{{ instagram.getName() }}</div>
+                                            <div class="post__publishdate">{{ post.node.taken_at_timestamp|date("d M Y") }}</div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col l12 post__message"><img src="{{ post.node.display_url }}" alt="Post image"></div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
