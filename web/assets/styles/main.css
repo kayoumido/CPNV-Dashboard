@@ -119,3 +119,14 @@ body {
 .platform-data--instagram .post .post__message img {
     max-width: 100%;
 }
+.post--empty__text {
+    color: #808080;
+}
+.post--empty__text h2 {
+    font-size: 4.5rem;
+    font-weight: 600;
+}
+.post--empty__text span {
+    font-size: 1.6rem;
+    font-weight: 300;
+}

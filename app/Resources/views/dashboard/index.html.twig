@@ -56,6 +56,10 @@
                         <span class="platform-data__followers__text">likes</span>
                     </div>
                     <div class="platform-data__posts col l8">
+                        {% if facebook.getPosts(1) is empty %}
+                            {% include 'dashboard/noposts.html.twig' %}
+                        {% endif %}
+                        
                         {% for post in facebook.getPosts(5) %}
                             {% if post.message is defined %}
                                 <div class="post card-panel">
@@ -85,7 +89,7 @@
                     </div>
                     <div class="platform-data__posts col l8">
                         {% if twitter.getTweets(1) is empty %}
-                            No posts
+                            {% include 'dashboard/noposts.html.twig' %}
                         {% endif %}
                         
                         {% for post in twitter.getTweets(5) %}
@@ -98,7 +102,6 @@
                                                 <div class="post__author__name">{{ post.user.screen_name }}</div>
                                                 <div class="post__publishdate">{{ post.created_at|date("d M Y") }}</div>
                                             </div>
-
                                         </div>
                                         <div class="col l12 post__message">{{ post.text }}</div>
                                     </div>
@@ -116,7 +119,10 @@
                         <span class="platform-data__followers__text">followers</span>
                     </div>
                     <div class="platform-data__posts col l8">
-
+                        {% if instagram.getPosts(1) is empty %}
+                            {% include 'dashboard/noposts.html.twig' %}
+                        {% endif %}
+                        
                         {% for post in instagram.getPosts(5) %}
                             <div class="post card-panel">
                                 <div class="row">
