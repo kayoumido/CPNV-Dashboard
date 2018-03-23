@@ -29,7 +29,7 @@ final class DashboardController extends Controller {
 
         return $this->render('dashboard/index.html.twig', [
             'facebook'  => $fb,
-            'twiter'    => $tw,
+            'twitter'   => $tw,
             'instagram' => $ig
         ]);
     }
