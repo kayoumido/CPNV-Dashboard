@@ -91,3 +91,9 @@ api:
 * **web/assets** : contains all the assets.
 
 If you want more information about the structure visit Symfony's official [documentation](https://symfony.com/doc/current/index.html).
+
+
+
+## Known Issues
+
+Instagrams API was so restrictive, I used a `backdoor` to access the data. But it was removed so it doesn't work anymore. A quick fix was done so the app still works.
