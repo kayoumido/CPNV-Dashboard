@@ -16,16 +16,19 @@ parameters:
     mailer_password: ~
 
     # A secret key that's used to generate certain security-related tokens
-    secret: ThisTokenIsNotSoSecretChangeIt
+    secret: 49af07465c3c2f68f4d57b82751300013cfe57cb
 
     # config for the different apis
     api:
         facebook:
-            app_id: AppId
-            app_secret: AppSecret
-            access_token: AccessToken
+            app_id: 2000022543657436
+            app_secret: aaff0fc9e0b94ab538b9ef086688b4c9
+            access_token: 2000022543657436|bwt-SNS0v0y3snu_wFIQ3c4jKKg
         twitter:
-            app_id: ClientID
-            app_secret: ClientSecret
-            access_token: AccessToken
-            access_token_secret: AccessTokenSecret
+            app_id: quQsrSA1On4qr7IEEE2Ar3JoI
+            app_secret: xPPj3fbe5QjiOFx3tXokxvOTOaJroPPu7vzjB2EOzOwYMGRkeV
+            access_token: 3352859691-RfOx6CoJcAgvSk28ooXTGXmP1dLJIpDKuensDrG
+            access_token_secret: ZjMH8NuezBW0gGjeEGSDs1cgj9ZhiZF8kLBuMd6hHLgXx
+        instagram:
+            api_url: 'https://www.instagram.com/'
+            api_param: '?__a=1'
