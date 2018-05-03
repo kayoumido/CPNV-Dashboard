@@ -1,0 +1,132 @@
+* {
+    font-family: 'Lato', sans-serif;
+}
+
+body {
+    background-color: #fafafa;
+}
+.header {
+    height: 80px;
+    background-color: #fff;
+    padding: 10px;
+}
+
+.header .header__logo {
+    max-height: 100%;
+}
+
+.header .header__logo img {
+    height: 64px;
+}
+
+.platforms {
+    margin-top: 25px;
+}
+.platform {
+    height: 100px;
+    cursor: pointer;
+}
+.platform:hover {
+    box-shadow: 1px 1px 15px 4px rgba(0, 0, 0, .5);
+}
+.platform .platform__icon {
+    height: 100%;
+    border-right: 1px solid rgba(255, 255, 255, .9);
+}
+.platform .platform__icon .icon {
+    width: 100%;
+    height: 100%;
+}
+.platform .platform__content {
+    height: 100%;
+}
+.platform .platform__content span {
+    height: 50%;
+    display: block;
+    font-weight: 300;
+}
+.platform .platform__content .platform__accountname {
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+.platform .platform__content .platform__title {
+    font-style: italic;
+    font-size: .9rem;
+}
+.platform.platform--facebook {
+    background-color: #3b5998; 
+    color: #fff;
+}
+.platform.platform--facebook .icon {
+    fill: #fff;
+}
+.platform.platform--twitter {
+    background-color: #00aced; 
+    color: #fff;
+}
+.platform.platform--twitter .icon {
+    fill: #fff;
+}
+.platform.platform--instagram {
+    background: #f09433; 
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+    color: #fff;
+}
+.platform.platform--instagram .icon {
+    fill: #fff;
+}
+
+.platform-data--hidden {
+    display: none;
+}
+.platform-data .platform-data__followers {
+    display: inline-block;
+    vertical-align: middle;
+    height: 150px;
+    text-align: center;
+    color: #464646fa;
+    font-weight: 200;
+    font-style: italic;
+}
+.platform-data .platform-data__followers .platform-data__followers__count {
+    line-height: 150px;
+    font-size: 3.5rem;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.post .post__header .post__author__profilpicture img {
+    border-radius: 35px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .5);
+}
+.post .post__header .post__header__text .post__publishdate {
+    font-size: .8rem;
+    color: #797979;
+}
+.post .post__message {
+    margin-top: 10px;
+}
+
+.platform-data--instagram .post__author__profilpicture img {
+    max-height: 50px;
+}
+
+.platform-data--instagram .post .post__message {
+    text-align: center;
+}
+.platform-data--instagram .post .post__message img {
+    max-width: 100%;
+}
+.post--empty__text {
+    color: #808080;
+}
+.post--empty__text h2 {
+    font-size: 4.5rem;
+    font-weight: 600;
+}
+.post--empty__text span {
+    font-size: 1.6rem;
+    font-weight: 300;
+}
